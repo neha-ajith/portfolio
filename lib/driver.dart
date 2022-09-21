@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:portfolio_rewamp/home.dart';
+import 'package:portfolio_rewamp/skills.dart';
+import 'package:portfolio_rewamp/who.dart';
 
 int index = 0;
 
@@ -15,7 +17,7 @@ class Driver extends StatefulWidget {
 class _DriverState extends State<Driver> {
   @override
   Widget build(BuildContext context) {
-    List<Widget> screens = [Home()];
+    List<Widget> screens = [Home(), Who(), Skills()];
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
@@ -103,7 +105,7 @@ class _DriverState extends State<Driver> {
               fit: BoxFit.cover,
             ),
           ),
-          child: screens[0]),
+          child: screens[2]),
     );
   }
 }
