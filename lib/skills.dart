@@ -31,6 +31,10 @@ class _SkillsState extends State<Skills> {
                 color: Color(0xff038A5A), title: 'FastAPI', logo: 'fastapi')
           ],
         ),
+        SizedBox(width: 500),
+        Text("Skills",
+            style: TextStyle(
+                fontFamily: 'Patrick', color: Colors.white, fontSize: 99))
       ],
     );
   }

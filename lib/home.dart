@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -40,7 +41,16 @@ class _HomeState extends State<Home> {
                       backgroundColor: Colors.black,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30.0))),
-                  onPressed: (() {}),
+                  onPressed: () async {
+                    var url =
+                        'https://drive.google.com/file/d/1ynaW_MPRkIALs7J7St9xpfMPwCSigUKq/view?usp=sharing';
+                    if (await canLaunchUrl(Uri.parse(url))) {
+                      await launchUrl(Uri.parse(url));
+                    } else {
+                      // can't launch url, there is some error
+                      throw "Could not launch $url";
+                    }
+                  },
                   child: Padding(
                     padding: EdgeInsets.all(12.0),
                     child: Text(
@@ -56,7 +66,7 @@ class _HomeState extends State<Home> {
               SizedBox(height: 150),
               CircleAvatar(
                 radius: 200,
-                backgroundImage: AssetImage("assets/harold.jpg"),
+                backgroundImage: AssetImage("assets/photo.jpg"),
               ),
             ],
           )

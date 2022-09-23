@@ -1,7 +1,9 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:portfolio_rewamp/contact.dart';
 import 'package:portfolio_rewamp/home.dart';
+import 'package:portfolio_rewamp/projects.dart';
 import 'package:portfolio_rewamp/skills.dart';
 import 'package:portfolio_rewamp/who.dart';
 
@@ -17,7 +19,7 @@ class Driver extends StatefulWidget {
 class _DriverState extends State<Driver> {
   @override
   Widget build(BuildContext context) {
-    List<Widget> screens = [Home(), Who(), Skills()];
+    List<Widget> screens = [Home(), Who(), Skills(), Projects(), Contact()];
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
@@ -45,7 +47,7 @@ class _DriverState extends State<Driver> {
                   style: TextButton.styleFrom(primary: Colors.white),
                   onPressed: (() {
                     setState(() {
-                      index = 0;
+                      index = 1;
                     });
                   }),
                   child: Text(
@@ -58,7 +60,7 @@ class _DriverState extends State<Driver> {
                   style: TextButton.styleFrom(primary: Colors.white),
                   onPressed: (() {
                     setState(() {
-                      index = 0;
+                      index = 2;
                     });
                   }),
                   child: Text(
@@ -71,7 +73,7 @@ class _DriverState extends State<Driver> {
                   style: TextButton.styleFrom(primary: Colors.white),
                   onPressed: (() {
                     setState(() {
-                      index = 0;
+                      index = 3;
                     });
                   }),
                   child: Text(
@@ -84,7 +86,7 @@ class _DriverState extends State<Driver> {
                   style: TextButton.styleFrom(primary: Colors.white),
                   onPressed: (() {
                     setState(() {
-                      index = 0;
+                      index = 4;
                     });
                   }),
                   child: Text(
@@ -105,7 +107,7 @@ class _DriverState extends State<Driver> {
               fit: BoxFit.cover,
             ),
           ),
-          child: screens[2]),
+          child: screens[index]),
     );
   }
 }

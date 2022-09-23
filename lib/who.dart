@@ -60,7 +60,7 @@ class _WhoState extends State<Who> {
             ),
           ],
         ),
-        SizedBox(width: 300),
+        SizedBox(width: 400),
         Text("Who?",
             style: TextStyle(
                 fontFamily: 'Patrick', color: Colors.white, fontSize: 99))
