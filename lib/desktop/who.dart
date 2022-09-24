@@ -1,31 +1,37 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:portfolio_rewamp/provider/desktop.dart';
 import 'package:portfolio_rewamp/widgets/time_line.dart';
+import 'package:provider/provider.dart';
 
-class Who extends StatefulWidget {
-  const Who({Key? key}) : super(key: key);
+class WhoDesktop extends StatefulWidget {
+  const WhoDesktop({Key? key}) : super(key: key);
 
   @override
-  State<Who> createState() => _WhoState();
+  State<WhoDesktop> createState() => _WhoDesktopState();
 }
 
-class _WhoState extends State<Who> {
+class _WhoDesktopState extends State<WhoDesktop> {
   @override
   Widget build(BuildContext context) {
+    var width = Provider.of<DesktopDimensions>(context).width;
+    var height = Provider.of<DesktopDimensions>(context).height;
+    ScreenUtil.init(context, designSize: Size(width, height));
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        SizedBox(width: 60),
+        SizedBox(width: 60.w),
         Column(
           children: [
-            SizedBox(height: 70),
+            SizedBox(height: 70.h),
             SizedBox(
-              width: 750,
+              width: 750.w,
               child: RichText(
                 text: TextSpan(
                   style: TextStyle(
-                    fontSize: 30,
+                    fontSize: 30.sp,
                     color: Colors.white,
                   ),
                   children: <TextSpan>[
@@ -38,7 +44,7 @@ class _WhoState extends State<Who> {
                 ),
               ),
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 20.h),
             Timeline(
               color: Color(0xffFCFF6B),
               school: 'Rajiv Gandhi Institute of Technology, Kottayam ',
@@ -60,10 +66,10 @@ class _WhoState extends State<Who> {
             ),
           ],
         ),
-        SizedBox(width: 400),
+        SizedBox(width: 400.w),
         Text("Who?",
             style: TextStyle(
-                fontFamily: 'Patrick', color: Colors.white, fontSize: 99))
+                fontFamily: 'Patrick', color: Colors.white, fontSize: 99.sp))
       ],
     );
   }

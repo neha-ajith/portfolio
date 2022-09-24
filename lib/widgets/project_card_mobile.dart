@@ -2,13 +2,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:portfolio_rewamp/provider/desktop.dart';
+import 'package:portfolio_rewamp/provider/mobile.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class ProjectCard extends StatelessWidget {
+class ProjectCardMobile extends StatelessWidget {
   final String titleImage, title, url;
-  const ProjectCard({
+  const ProjectCardMobile({
     Key? key,
     required this.titleImage,
     required this.title,
@@ -17,8 +17,8 @@ class ProjectCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var width = Provider.of<DesktopDimensions>(context).width;
-    var height = Provider.of<DesktopDimensions>(context).height;
+    var width = Provider.of<MobileDimensions>(context).width;
+    var height = Provider.of<MobileDimensions>(context).height;
     ScreenUtil.init(context, designSize: Size(width, height));
     return MouseRegion(
       cursor: SystemMouseCursors.click,
@@ -34,8 +34,8 @@ class ProjectCard extends StatelessWidget {
         child: ClipRRect(
           borderRadius: BorderRadius.circular(15.0),
           child: Container(
-            width: 370.w,
-            height: 220.h,
+            width: 200.w,
+            height: 120.h,
             decoration: BoxDecoration(
                 image: DecorationImage(
               image: AssetImage('assets/$titleImage'),
@@ -51,7 +51,7 @@ class ProjectCard extends StatelessWidget {
                       style: TextStyle(
                           color: Colors.white,
                           fontFamily: 'Podkova',
-                          fontSize: 28.sp))),
+                          fontSize: 18.sp))),
             ),
           ),
         ),

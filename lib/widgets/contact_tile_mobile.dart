@@ -3,14 +3,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:portfolio_rewamp/provider/desktop.dart';
+import 'package:portfolio_rewamp/provider/mobile.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class ContactTile extends StatelessWidget {
+class ContactTileMobile extends StatelessWidget {
   final String contact, url;
   final IconData icon;
-  const ContactTile({
+  const ContactTileMobile({
     Key? key,
     required this.contact,
     required this.icon,
@@ -19,8 +19,8 @@ class ContactTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var width = Provider.of<DesktopDimensions>(context).width;
-    var height = Provider.of<DesktopDimensions>(context).height;
+    var width = Provider.of<MobileDimensions>(context).width;
+    var height = Provider.of<MobileDimensions>(context).height;
     ScreenUtil.init(context, designSize: Size(width, height));
     return MouseRegion(
       cursor: SystemMouseCursors.click,
@@ -35,14 +35,14 @@ class ContactTile extends StatelessWidget {
         },
         child: Row(
           children: [
-            SizedBox(width: 250.w),
+            SizedBox(width: 100.w),
             CircleAvatar(
-                radius: 30.w,
+                radius: 20.w,
                 backgroundColor: Colors.black,
-                child: FaIcon(icon, color: Colors.white, size: 38.sp)),
+                child: FaIcon(icon, color: Colors.white, size: 20.sp)),
             SizedBox(width: 20.w),
             Text(contact,
-                style: TextStyle(color: Colors.white, fontSize: 28.sp))
+                style: TextStyle(color: Colors.white, fontSize: 18.sp))
           ],
         ),
       ),

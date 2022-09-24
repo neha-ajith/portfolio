@@ -1,25 +1,39 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:portfolio_rewamp/contact.dart';
-import 'package:portfolio_rewamp/home.dart';
-import 'package:portfolio_rewamp/projects.dart';
-import 'package:portfolio_rewamp/skills.dart';
-import 'package:portfolio_rewamp/who.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:portfolio_rewamp/desktop/contact.dart';
+import 'package:portfolio_rewamp/desktop/home.dart';
+import 'package:portfolio_rewamp/desktop/projects.dart';
+import 'package:portfolio_rewamp/desktop/skills.dart';
+import 'package:portfolio_rewamp/desktop/who.dart';
+import 'package:portfolio_rewamp/provider/desktop.dart';
+import 'package:provider/provider.dart';
 
 int index = 0;
 
-class Driver extends StatefulWidget {
-  const Driver({Key? key}) : super(key: key);
+class DriverDesktop extends StatefulWidget {
+  const DriverDesktop({Key? key}) : super(key: key);
 
   @override
-  State<Driver> createState() => _DriverState();
+  State<DriverDesktop> createState() => _DriverDesktopState();
 }
 
-class _DriverState extends State<Driver> {
+class _DriverDesktopState extends State<DriverDesktop> {
   @override
   Widget build(BuildContext context) {
-    List<Widget> screens = [Home(), Who(), Skills(), Projects(), Contact()];
+    // print(MediaQuery.of(context).size.width);
+    // print(MediaQuery.of(context).size.height);
+    var width = Provider.of<DesktopDimensions>(context).width;
+    var height = Provider.of<DesktopDimensions>(context).height;
+    ScreenUtil.init(context, designSize: Size(width, height));
+    List<Widget> screens = [
+      HomeDesktop(),
+      WhoDesktop(),
+      SkillsDesktop(),
+      ProjectsDesktop(),
+      ContactDesktop()
+    ];
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
@@ -42,7 +56,7 @@ class _DriverState extends State<Driver> {
                     style: TextStyle(fontFamily: 'Podkova'),
                   ),
                 ),
-                SizedBox(width: 20),
+                SizedBox(width: 20.w),
                 TextButton(
                   style: TextButton.styleFrom(primary: Colors.white),
                   onPressed: (() {
@@ -55,7 +69,7 @@ class _DriverState extends State<Driver> {
                     style: TextStyle(fontFamily: 'Podkova'),
                   ),
                 ),
-                SizedBox(width: 20),
+                SizedBox(width: 20.w),
                 TextButton(
                   style: TextButton.styleFrom(primary: Colors.white),
                   onPressed: (() {
@@ -68,7 +82,7 @@ class _DriverState extends State<Driver> {
                     style: TextStyle(fontFamily: 'Podkova'),
                   ),
                 ),
-                SizedBox(width: 20),
+                SizedBox(width: 20.w),
                 TextButton(
                   style: TextButton.styleFrom(primary: Colors.white),
                   onPressed: (() {
@@ -81,7 +95,7 @@ class _DriverState extends State<Driver> {
                     style: TextStyle(fontFamily: 'Podkova'),
                   ),
                 ),
-                SizedBox(width: 20),
+                SizedBox(width: 20.w),
                 TextButton(
                   style: TextButton.styleFrom(primary: Colors.white),
                   onPressed: (() {

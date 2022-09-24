@@ -1,24 +1,30 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:portfolio_rewamp/provider/desktop.dart';
 import 'package:portfolio_rewamp/widgets/skill_tile.dart';
+import 'package:provider/provider.dart';
 
-class Skills extends StatefulWidget {
-  const Skills({Key? key}) : super(key: key);
+class SkillsDesktop extends StatefulWidget {
+  const SkillsDesktop({Key? key}) : super(key: key);
 
   @override
-  State<Skills> createState() => _SkillsState();
+  State<SkillsDesktop> createState() => _SkillsDesktopState();
 }
 
-class _SkillsState extends State<Skills> {
+class _SkillsDesktopState extends State<SkillsDesktop> {
   @override
   Widget build(BuildContext context) {
+    var width = Provider.of<DesktopDimensions>(context).width;
+    var height = Provider.of<DesktopDimensions>(context).height;
+    ScreenUtil.init(context, designSize: Size(width, height));
     return Row(
       children: [
-        SizedBox(width: 150),
+        SizedBox(width: 150.w),
         Column(
           children: [
-            SizedBox(height: 50),
+            SizedBox(height: 50.h),
             SkillTile(
                 color: Color(0xff387DA4),
                 title: 'Flutter and Dart',
@@ -31,10 +37,10 @@ class _SkillsState extends State<Skills> {
                 color: Color(0xff038A5A), title: 'FastAPI', logo: 'fastapi')
           ],
         ),
-        SizedBox(width: 500),
+        SizedBox(width: 500.w),
         Text("Skills",
             style: TextStyle(
-                fontFamily: 'Patrick', color: Colors.white, fontSize: 99))
+                fontFamily: 'Patrick', color: Colors.white, fontSize: 99.sp))
       ],
     );
   }
